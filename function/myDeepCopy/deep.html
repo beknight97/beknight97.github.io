@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="copy.js"></script>
+<script>
+    var array=[1,2,3,3,3];
+    var copyArray1=array.slice();
+    copyArray1[0]=100;
+    console.log(copyArray1)
+    var copyArray2=array.concat();
+    copyArray2[0]=9999;
+    console.log(copyArray2)
+
+    var obj={
+        ktb:function(){
+            console.log(this.qqq)
+        },
+        qqq:31231,
+        faker:{
+            kjkj:213123,
+        },
+    }
+    var newObj=simpleClone(obj)
+    console.log(newObj)
+    obj.faker.kjkj=2222222222
+    console.log(newObj)
+
+</script>    
+</body>
+
+</html>

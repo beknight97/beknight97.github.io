@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <script src="HD.js"></script>
+</head>
+
+
+<body>
+    
+</body>
+
+<script >
+    let p1=new HD((resolve,reject)=>{
+        setTimeout(()=>{
+        resolve('bcao bi zhanshi111')            
+        },1000)
+
+    })
+    let p2=new HD((resolve,reject)=>{
+        setTimeout(()=>{
+        resolve('kuangbaogege')
+        },500)
+    })
+    
+    HD.race([p1,p2]).then(
+        value=>{
+            console.log(value)
+        },
+        reason=>{
+            console.log(reason)
+        }
+    )
+    
+    
+</script>
+</html>

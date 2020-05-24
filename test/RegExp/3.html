@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="user" placeholder="character border test">
+    <br>
+    <input type="text" name="username" placeholder="\w test">
+</body>
+<script>
+    let url="https://www.bilibili.com/"
+    console.log("translate",/https:\/\/\w+\.\w+\.\w+\//.test(url))
+
+
+
+    let tel=/(12|34)/
+    let reg=/[123456]/
+    let hd='12'
+    console.log("atomic table and atomic group",hd.match(tel))
+
+
+
+    let hd3="2dasdasjd2"
+    console.log(/^\d/.test(hd3))
+    document.querySelector("[name='user']")
+    .addEventListener("keyup",function(){
+        if(this.value.match(/^[a-z]{3,6}$/)){
+            console.log("character border test ok",this.value.match(/[a-z]{3,6}/))
+        }
+    }
+    )
+
+
+    let hd5=`
+    dasjjkjlj 999,010-666666666666,
+    010-999999999999999999999 展示
+    `
+    console.log('value test',hd5.match(/\d{3}-\d{7,8}/g))
+    console.log('value test2',hd5.match(/\D+/))
+    console.log("blank test",hd5.match(/[^,\d-\s]+/g))
+
+
+    let email=`caonima2020@qq.com`
+    console.log("test \w email",email.match(/^\w+\@\w+\.\w+$/))
+    console.log("test \W",'dsklfjsdkl@!#!$@#$'.match(/\W+/))
+    document.querySelector("[name='username']")
+    .addEventListener("keyup",function(){
+    console.log(/^[a-z]\w{4,9}$/.test("test /w",this.value))    
+    })
+    
+
+    let url3=`
+    ripi.caom
+    asjklasdjkljkl.com
+    `
+    console.log("test s and .",url3.match(/.+/s)[0])
+
+    let tel3=`010- 99999999`
+    console.log("test \s",tel3.match(/\d+-\s\d{8}/))
+
+
+    let xj="ab"
+    let hdd=`
+    <span>
+        asdfjkldfjkl;dfjkl;
+        sdfjklfasdjklsdfjkl
+    </span>
+    `
+    console.log(hdd.match(/<span>[\s\S]+<\/span>/))
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100%;
+            height: 200px;
+            background-color: bisque;
+            text-align: center;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="btn">cancel</button>
+    <script src="debounce.js"></script>
+    <script src="../myThrottle/throttle.js"></script>
+    <script>
+        let count=1;
+        let container=document.querySelector('#container');
+        let btn=document.querySelector('#btn')
+
+        function doSomeThing(e){
+            container.innerHTML=count++;
+        }
+        let doSome=throttle(doSomeThing,3000,{
+            leading:false,
+            trailing:false
+        });
+
+
+        container.onmousemove=doSome;
+
+
+    </script>
+</body>
+</html>

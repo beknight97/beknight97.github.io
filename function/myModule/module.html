@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    let module=(function(){
+        const moduleList={};
+        function define(name,modules,action){
+            modules.map((m,i)=>{
+                modules[i]=moduleList[m];//从容器中取出模块，添加到外部数组中的变量中去。
+            })
+            moduleList[name]=action.apply(null,modules)//向容器中添加模块
+        }
+        return {define}
+    })()
+
+    module.define('hd',[],function(){
+        return {
+            first(arr){
+                return arr[0]
+            },
+            max(arr,key){
+                return arr.sort((a,b)=>b[key]-a[key])[0]
+            }
+        }//向外部暴露了功能
+    });
+    module.define("lesson",['hd'],function(hd){
+        let data=[
+            {name:'js',price:100000},
+            {name:'mysql',price:999}
+        ]
+        console.log(hd.max(data,"price"))
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        caonima
+    </div>
+</body>
+<script>
+    let con=prompt("input")
+    let div=document.querySelector('div')
+    let reg=new RegExp(con,"g")
+    div.innerHTML=div.innerHTML.replace(reg,a=>{
+        return '<span style="color:red">'+a+'</span>';
+    })
+</script>
+</html>

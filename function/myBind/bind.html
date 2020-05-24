@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="bind.js"></script>
+<script>
+var person={
+    fullName:function(message){
+        console.log(this.firstName+" "+this.lastName,"message test",message)
+    }
+}
+
+var person1={
+    firstName:"clone",
+    lastName:"ok",
+}
+
+
+
+var person3={
+    fullName:function(m1,m2,m3,m4){
+        console.log(this.firstName+" "+this.lastName,"message test",m1,m2,m3,m4)
+    }
+}
+
+var firstName="window"
+var lastName="ok"
+
+person3.fullName.myCall(person1,2)
+
+person3.fullName.myApply(person1,[2,3,4,78])
+
+
+person3.fullName.myBind(person1,2,3,4)(7)
+</script>    
+</body>
+
+</html>
